@@ -36,6 +36,7 @@ async function run() {
     const opportunitiesCollection = database.collection("opportunities");
     const startupsCollection = database.collection("startups");
     const usersCollection = database.collection("user");
+    const applicationsCollection = database.collection("applications");
 
 
     app.get('/api/users',async(req, res)=>{
@@ -107,6 +108,17 @@ async function run() {
         }
         const result = await startupsCollection.findOne(query);
         res.send(result || {});
+    })
+
+    // Apply for an opportunity
+    app.post('/api/applications', async(req, res) => {
+        const application = req.body;
+        const newApplication = {
+            ...application, 
+            createdAt: new Date()
+        }
+        const result = await applicationsCollection.insertOne(newApplication);
+        res.send(result);
     })
 
     // Send a ping to confirm a successful connection
