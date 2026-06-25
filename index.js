@@ -26,9 +26,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
     try {
-        // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
-
 
         const database = client.db("startupfordge_db");
         const opportunitiesCollection = database.collection("opportunities");
@@ -144,8 +142,6 @@ async function run() {
             res.send(result);
         })
 
-
-
         // ALL ABOUT STARTUP //
 
         // Create a startup
@@ -209,7 +205,6 @@ async function run() {
             const result = await startupsCollection.deleteOne(query);
             res.send(result);
         })
-
 
         // APPLICATIONS //
 
