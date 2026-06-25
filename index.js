@@ -55,7 +55,7 @@ async function run() {
             const filter = {
                 _id: new ObjectId(id)
             };
-            
+
             const updateFields = {};
             if (name !== undefined) updateFields.name = name;
             if (image !== undefined) updateFields.image = image;
@@ -99,6 +99,15 @@ async function run() {
             }
             if (req.query.status) {
                 query.status = req.query.status;
+            }
+            if (req.query.search) {
+                query.roleTitle = { $regex: req.query.search, $options: 'i' };
+            }
+            if (req.query.skills) {
+                query.requiredSkills = { $regex: req.query.skills, $options: 'i' };
+            }
+            if (req.query.workType) {
+                query.workType = { $in: [].concat(req.query.workType) };
             }
 
             const cursor = opportunitiesCollection.find(query).sort({ createdAt: -1 });
