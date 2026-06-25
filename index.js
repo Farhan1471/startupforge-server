@@ -269,7 +269,7 @@ async function run() {
             res.send(plan);
         })
 
-        // Payment related
+        // Payment related all API's
         // Get all payments (for admin)
         app.get('/api/payments', async (req, res) => {
             const cursor = paymentCollection.find().sort({ createdAt: -1 });
