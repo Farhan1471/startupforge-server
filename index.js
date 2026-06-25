@@ -175,7 +175,6 @@ async function run() {
             res.send(startups);
         })
 
-
         // Get startup by founder
         app.get('/api/my/startups', async (req, res) => {
             const query = {};
@@ -196,7 +195,6 @@ async function run() {
             const updateDocument = {
                 $set: {
                     ...updatedStartup
-                    // status: updatedStartup.status
                 }
             }
             const result = await startupsCollection.updateOne(filter, updateDocument);
