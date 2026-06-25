@@ -143,7 +143,6 @@ async function run() {
         })
 
         // ALL ABOUT STARTUP //
-
         // Create a startup
         app.post('/api/startups', async (req, res) => {
             const startup = req.body;
@@ -207,7 +206,6 @@ async function run() {
         })
 
         // APPLICATIONS //
-
         // Apply for an opportunity
         app.post('/api/applications', async (req, res) => {
             const application = req.body;
@@ -310,8 +308,6 @@ async function run() {
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
     }
     finally {
-        // Ensures that the client will close when you finish/error
-        // await client.close();
     }
 }
 run().catch(console.dir);
