@@ -28,6 +28,7 @@ async function run() {
     try {
         await client.connect();
 
+        // All collections
         const database = client.db("startupfordge_db");
         const opportunitiesCollection = database.collection("opportunities");
         const startupsCollection = database.collection("startups");
@@ -37,6 +38,7 @@ async function run() {
         const paymentCollection = database.collection("payments");
 
 
+        // User relaed routes
         // Get User
         app.get('/api/users', async (req, res) => {
             const cursor = usersCollection.find();
@@ -66,8 +68,7 @@ async function run() {
             res.send(result);
         })
 
-       // ALL ABOUT OPPORTUNITY //
-
+        // ALL ABOUT OPPORTUNITY //
         // Create an opportunity
         app.post('/api/opportunities', async (req, res) => {
             const opportunity = req.body;
