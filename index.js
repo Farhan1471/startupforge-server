@@ -13,7 +13,6 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-
 const uri = process.env.MONGO_DB_URI;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -311,19 +310,6 @@ async function run() {
             res.send(result);
         })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -334,8 +320,6 @@ async function run() {
     }
 }
 run().catch(console.dir);
-
-
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
