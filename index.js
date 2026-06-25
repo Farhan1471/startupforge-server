@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
 })
 
 
-
 const uri = process.env.MONGO_DB_URI;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -70,12 +69,7 @@ async function run() {
             res.send(result);
         })
 
-
-
-
-
-
-        // ALL ABOUT OPPORTUNITY //
+       // ALL ABOUT OPPORTUNITY //
 
         // Create an opportunity
         app.post('/api/opportunities', async (req, res) => {
